@@ -147,20 +147,20 @@ class LoadImages:  # for inference
 
         if self.video_flag[self.count]:
             # Read video
-            self.mode = 'video'
-            ret_val, img0 = self.cap.read()
-            if not ret_val:
-                self.count += 1
+    #        self.mode = 'video'
+     #       ret_val, img0 = self.cap.read()
+      #      if not ret_val:
+       #         self.count += 1
                 self.cap.release()
-                if self.count == self.nf:  # last video
-                    raise StopIteration
-                else:
-                    path = self.files[self.count]
-                    self.new_video(path)
-                    ret_val, img0 = self.cap.read()
+        #        if self.count == self.nf:  # last video
+         #           raise StopIteration
+          #      else:
+           #         path = self.files[self.count]
+            #        self.new_video(path)
+             #       ret_val, img0 = self.cap.read()
 
-            self.frame += 1
-            print('video %g/%g (%g/%g) %s: ' % (self.count + 1, self.nf, self.frame, self.nframes, path), end='')
+            #self.frame += 1
+            #print('video %g/%g (%g/%g) %s: ' % (self.count + 1, self.nf, self.frame, self.nframes, path), end='')
 
         else:
             # Read image
@@ -192,8 +192,8 @@ class LoadWebcam:  # for inference
     def __init__(self, pipe=0, img_size=640):
         self.img_size = img_size
 
-        if pipe == '0':
-            pipe = 0  # local camera
+       # if pipe == '0':
+           # pipe = 0  # local camera
         # pipe = 'rtsp://192.168.1.64/1'  # IP camera
         # pipe = 'rtsp://username:password@192.168.1.64/1'  # IP camera with login
         # pipe = 'rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa'  # IP traffic camera
@@ -206,9 +206,9 @@ class LoadWebcam:  # for inference
         # https://stackoverflow.com/questions/54095699/install-gstreamer-support-for-opencv-python-package  # install help
         # pipe = "rtspsrc location=rtsp://root:root@192.168.0.91:554/axis-media/media.amp?videocodec=h264&resolution=3840x2160 protocols=GST_RTSP_LOWER_TRANS_TCP ! rtph264depay ! queue ! vaapih264dec ! videoconvert ! appsink"  # GStreamer
 
-        self.pipe = pipe
-        self.cap = cv2.VideoCapture(pipe)  # video capture object
-        self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 3)  # set buffer size
+     ##   self.pipe = pipe
+     ##   self.cap = cv2.VideoCapture(pipe)  # video capture object
+     ##   self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 3)  # set buffer size
 
     def __iter__(self):
         self.count = -1
@@ -216,27 +216,27 @@ class LoadWebcam:  # for inference
 
     def __next__(self):
         self.count += 1
-        if cv2.waitKey(1) == ord('q'):  # q to quit
-            self.cap.release()
-            cv2.destroyAllWindows()
-            raise StopIteration
+    #    if cv2.waitKey(1) == ord('q'):  # q to quit
+     #       self.cap.release()
+      #      cv2.destroyAllWindows()
+       #     raise StopIteration
 
         # Read frame
-        if self.pipe == 0:  # local camera
-            ret_val, img0 = self.cap.read()
-            img0 = cv2.flip(img0, 1)  # flip left-right
-        else:  # IP camera
-            n = 0
-            while True:
-                n += 1
-                self.cap.grab()
-                if n % 30 == 0:  # skip frames
-                    ret_val, img0 = self.cap.retrieve()
-                    if ret_val:
-                        break
+        #if self.pipe == 0:  # local camera
+         #   ret_val, img0 = self.cap.read()
+          #  img0 = cv2.flip(img0, 1)  # flip left-right
+       # else:  # IP camera
+        #    n = 0
+         #   while True:
+          #      n += 1
+           #     self.cap.grab()
+            #    if n % 30 == 0:  # skip frames
+             #       ret_val, img0 = self.cap.retrieve()
+              #      if ret_val:
+               #         break
 
         # Print
-        assert ret_val, 'Camera Error %s' % self.pipe
+        #assert ret_val, 'Camera Error %s' % self.pipe
         img_path = 'webcam.jpg'
         print('webcam %g: ' % self.count, end='')
 
