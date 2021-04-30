@@ -3,6 +3,7 @@ gdown
 Cpython
 matplotlib>=3.2.2
 numpy>=1.18.5
+waitress
 opencv-python
 pillow
 PyYAML>=5.3
