@@ -24,7 +24,6 @@ from com_ineuron_apparel.predictor_yolo_detector.utils.torch_utils import select
 
 
 class Detector():
-    # def __init__(self, weights, conf, source, img_size, save_dir, save_txt, device, augment, agnostic_nms, conf_thres, ):
     def __init__(self, filename):
         import os
 
@@ -178,4 +177,3 @@ class Detector():
         result = {"image": opencodedbase64.decode('utf-8')}
         return result
 
-#
