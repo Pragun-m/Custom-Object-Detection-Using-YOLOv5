@@ -1,6 +1,6 @@
 -f https://download.pytorch.org/whl/torch_stable.html
 gdown
-python3.7
+Cpython
 matplotlib>=3.2.2
 numpy>=1.18.5
 opencv-python
