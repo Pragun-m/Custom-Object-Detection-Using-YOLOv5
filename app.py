@@ -20,7 +20,7 @@ class ClientApp:
         self.filename = "inputImage.jpg"
         self.objectDetection = Detector(self.filename)
 
-
+clApp = ClientApp()
 @app.route("/")
 def home():
     return render_template("indexB.html")
