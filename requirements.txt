@@ -11,5 +11,5 @@ tqdm>=4.41.0
 flask-cors
 flask-bootstrap
 gunicorn
-torch==1.8.1
-torchvision
+torch==1.6.0+cpu
+torchvision==0.7.0+cpu
