@@ -1,1 +1,1 @@
-web: gunicorn --port=$PORT clientApp.wsgi:application
+web: gunicorn --port=$PORT app:app
