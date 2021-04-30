@@ -3,13 +3,13 @@ gdown
 Cpython
 matplotlib>=3.2.2
 numpy>=1.18.5
-waitress
 opencv-python
 pillow
 PyYAML>=5.3
 scipy>=1.4.1
 tqdm>=4.41.0
 flask-cors
+flask-bootsrap
 gunicorn
 torch==1.7.1+cpu
 torchvision
