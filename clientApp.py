@@ -3,6 +3,7 @@ import os
 from flask_cors import CORS, cross_origin
 from com_ineuron_apparel.com_ineuron_utils.utils import decodeImage
 from com_ineuron_apparel.predictor_yolo_detector.detector_test import Detector
+from flask_bootstrap import Bootstrap
 
 # import sys
 # sys.path.insert(0, './com_ineuron_apparel')
@@ -10,7 +11,7 @@ from com_ineuron_apparel.predictor_yolo_detector.detector_test import Detector
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 CORS(app)
 
 
