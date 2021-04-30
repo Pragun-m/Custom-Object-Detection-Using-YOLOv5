@@ -11,4 +11,4 @@ tqdm>=4.41.0
 flask-cors
 gunicorn
 torch
-torchvision==0.7.0+cpu
+torchvision
