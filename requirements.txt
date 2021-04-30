@@ -12,3 +12,4 @@ flask-cors
 gunicorn
 torch==1.7.1+cpu
 torchvision
+opencv-python-headless==4.2.0.32
