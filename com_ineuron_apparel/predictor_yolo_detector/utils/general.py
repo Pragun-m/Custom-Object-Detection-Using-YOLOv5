@@ -33,7 +33,7 @@ np.set_printoptions(linewidth=320, formatter={'float_kind': '{:11.5g}'.format}) 
 matplotlib.rc('font', **{'size': 11})
 
 # Prevent OpenCV from multithreading (to use PyTorch DataLoader)
-# cv2.setNumThreads(0)
+cv2.setNumThreads(0)
 
 
 @contextmanager
